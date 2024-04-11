@@ -1,8 +1,6 @@
-# React + Vite
+# ![project image](../reactCrash/screen.png)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the jobs listing project from the Crash Course
 
-Currently, two official plugins are available:
+This project uses JSON-Server for a mock backend.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
