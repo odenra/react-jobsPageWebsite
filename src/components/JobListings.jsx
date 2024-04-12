@@ -1,9 +1,9 @@
 import jobs from '../jobs.json'
 import JobListining from '../components/JobListining';
 
-const JobListings = () => {
+const JobListings = ({  isHome = false }) => {
 
-    const recentJobs = jobs.slice(0, 3);
+    const JobListings = isHome ? jobs.slice(0, 3) : jobs;
 
   return (
     <>
@@ -17,7 +17,7 @@ const JobListings = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-            {recentJobs.map ((job) => (
+            {JobListings.map ((job) => (
                 
                 <JobListining key={job.id} job={ job }/>
 
