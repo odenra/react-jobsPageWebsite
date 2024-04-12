@@ -1,9 +1,27 @@
-import jobs from '../jobs.json'
+import { useState, useEffect } from 'react';
 import JobListining from '../components/JobListining';
 
 const JobListings = ({  isHome = false }) => {
 
-    const JobListings = isHome ? jobs.slice(0, 3) : jobs;
+    const [jobs, setJobs] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+      const fetchJobs = async () => {
+        try {
+          const res = await fetch('http://localhost:5000/jobs');
+          const data = await res.json();
+          setJobs(data);
+        } catch (error) {
+          console.log(error, 'error')
+        } finally {
+          setLoading(false);
+        }
+        
+      }
+
+      fetchJobs();
+    }, [])
 
   return (
     <>
@@ -17,7 +35,7 @@ const JobListings = ({  isHome = false }) => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-            {JobListings.map ((job) => (
+            {jobs.map ((job) => (
                 
                 <JobListining key={job.id} job={ job }/>
 
