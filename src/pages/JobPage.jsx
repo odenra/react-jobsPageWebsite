@@ -1,5 +1,5 @@
 import { useParams, useLoaderData } from "react-router-dom";
-import { FaArrowLeft } from "react-icons/fa";
+import { FaArrowLeft, FaMapMarker } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const JobPage = () => {
@@ -31,7 +31,7 @@ const JobPage = () => {
                 </h1>
 
                 <div className="text-gray-500 mb-4 flex align-middle justify-center md:justify-start">
-                  <i className="fa-solid fa-location-dot text-lg text-orange-700 mr-2"></i>
+                  <FaMapMarker className="text-orange-700 mr-1"/>
                   <p className="text-orange-700">{job.location}</p>
                 </div>
               </div>
