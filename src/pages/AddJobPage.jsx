@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const AddJobPage = () => {
+const AddJobPage = ({ addJobSubmit }) => {
 
     const [title, setTitle] = useState('');
     const [type, setType] = useState('Full-Time');
@@ -12,6 +13,8 @@ const AddJobPage = () => {
     const [contactEmail, setContactEmail] = useState('');
     const [contactPhone, setContactPhone] = useState('');
 
+    const navigate = useNavigate();
+
     const submitForm = (e) => {
         e.preventDefault();
 
@@ -21,13 +24,17 @@ const AddJobPage = () => {
             location,
             description,
             salary,
-            company {
+            company: {
                 name: companyName,
                 description: companyDescription,
                 contactEmail: contactEmail,
                 contactPhone: contactPhone
-            }
-        }
+            },
+        };
+
+        addJobSubmit(newJob);
+
+        return navigate('/jobs');
     }
 
   return (
@@ -165,7 +172,7 @@ const AddJobPage = () => {
                 rows="4"
                 placeholder="What does your company do?"
                 value={companyDescription}
-                onChange={(e) => companyDescription(e.target.value)}
+                onChange={(e) => setCompanyDescription(e.target.value)}
               ></textarea>
             </div>
 
